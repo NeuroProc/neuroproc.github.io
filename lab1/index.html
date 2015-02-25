@@ -2,6 +2,7 @@
 <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   	<title>САЙТ ПОСВЯЩЁННЫЙ ГРУППЕ ГРАЖДАНСКАЯ ОБОРОНА</title>
+  	<script type = "text/javascript" src = "js/paint.js"></script>
   	<style type="text/css">
   		body {
   			padding: 0px;
@@ -41,11 +42,15 @@
 	   		color: #000; 
 	   	}
 	   	#gifs {
-	   		width: 20%;
+	   		vertical-align: top;
+	   		padding-top: 20px;
 	   	}
 	   	#album {
 	   		width: 300px;
 	   		height: 300px;
+	   	}
+	   	#paint {
+	   		vertical-align: top;
 	   	}
   	</style>
 </head>
@@ -77,7 +82,7 @@
    			</td>
    		</tr>
    		<tr>
-   			<td bgcolor=#fcc>CANVAS</td>
+   			<td id="paint"><canvas id="tablet" height="1000"></div></td>
    			<td id="table-inside" colspan="6">
    				<table id="main" cellpadding="20" cellspacing="0">
    					<tr>
@@ -98,8 +103,11 @@
    				</table>
    			</td>
    			<td id="gifs">
-   				<img src="img/1.gif">
-   				<img src="img/2.gif">
+   				<img width="100%" src="img/1.gif">
+   				<img width="100%" src="img/cat.gif">
+   				<img width="100%" src="img/kater.gif">
+   				<img width="100%" src="img/2.gif">
+   				
    			</td>
    		</tr>
    		
