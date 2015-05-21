@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>БРОНИРОВАНИЕ НОМЕРОВ</title>
+        <link href="css/add.css" rel="stylesheet"/>
+    </head>
+    <body>
+    
+    <div class="header">Adding page. Good luck.</div>
+		<form style="" method="POST" action="add.php">
+			<fieldset>
+				<legend>Add client</legend>
+				
+				<div class="labelwrap"><label>name</label></div>
+				<input type="text" name="name"><br>
+				<div class="labelwrap"><label>date of birth</label></div>
+				<input type="text" name="date_of_birth"><br>
+				<div class="labelwrap"><label>passport</label></div>
+				<input type="text" name="passport"><br>
+				<div class="labelwrap"><label>sex</label></div>
+				<select name="sex">
+					<option>Male</option>
+					<option>Female</option>
+				</select><br>
+				<input style="background: #00F; float: right;" name="add_client" type="submit" value="ADD">
+		    </fieldset>
+		</form>
+    
+    <br>
+    
+    <form method="POST" action="add.php">
+    	<fieldset>
+    		<legend>Add order</legend>
+			<div class="labelwrap"><label>client</label></div>
+			<select name="client">
+				<?php foreach ($clients as $client): ?>
+                	<option><?=$client?></option>
+                <?php endforeach; ?>
+			</select><br>
+			<div class="labelwrap"><label>apartment</label></div>
+			<select name="apartment">
+				<?php foreach ($apartments as $apartment): ?>
+                	<option><?=$apartment?></option>
+                <?php endforeach; ?>
+			</select><br>
+			<div class="labelwrap"><label>date</label></div>
+			<input type="text" name="date"><br>	
+			<div class="labelwrap"><label>day count</label></div>
+			<input type="text" name="day_count"><br>
+			<div class="labelwrap"><label>order status</label></div>
+			<select name="order_status">
+				<?php foreach ($statuses as $status): ?>
+                	<option><?=$status?></option>
+                <?php endforeach; ?>
+			</select><br>
+		    <input style="background: #00F; float: right;" name="add_order" type="submit" value="ADD">
+        </fieldset>
+    </form>
+
+    </body>
+</html>

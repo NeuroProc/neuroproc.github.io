@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>BOOKING | register</title>
+   
+        <link href="css/style.css" rel="stylesheet">      
+        <link href="css/pikaday.css" rel="stylesheet">
+        
+    </head>
+    <body>
+    
+    	<div class="header">Registration</div>
+   
+		<?php if (!empty($err)): ?>
+			<div class="err">
+				<?php foreach ($err as $e): ?>
+					<?=$e?><br>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+				
+   
+	    <div class="webform" align="center">     
+			<form method="POST" action="register.php" enctype="multipart/form-data">
+					<input type="text" name="email" placeholder="e-mail"><br>
+					<input type="password" name="password" placeholder="password"><br>
+					<input type="password" name="repassword" placeholder="re-password"><br>
+					<input type="text" name="name" placeholder="name"><br>
+					<input type="text" id="datepicker" name="date_of_birth" placeholder="date of birth"><br>
+					<input type="text" name="passport" placeholder="passport"><br>
+					<select name="sex">
+						<option>Male</option>
+						<option>Female</option>
+					</select><br>
+					<input class="submit" name="submit" type="submit" value="submit">
+			</form>
+		</div>
+		
+		<script src="js/moment.js"></script>
+		<script src="js/pikaday.js"></script>       
+        <script>
+    		//var picker = new Pikaday({ field: document.getElementById('datepicker') });
+			new Pikaday(
+			{
+				field: document.getElementById('datepicker'),
+				position: 'bottom right',
+				reposition: false,
+				format: 'YYYY-MM-DD'
+			});
+		</script>
+		
+    </body>
+</html>

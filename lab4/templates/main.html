@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>BOOKING</title>
+        <link href="css/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+    <div class="header">Welcome to the BOOKING system.</div>
+ 
+ 
+ 
+    
+    <?php if(!isset($_SESSION['uid'])): ?>
+    	<div class="subheader">
+    		You are not logged in.<br>
+    		<a href="login.php">login</a> or <a href="register.php">register</a><br>
+    	</div>
+    	<?php exit(); ?>
+    <?php else: ?>
+    	<div class="subheader">
+    		Have a good day, <?=$_SESSION['uname']?>. <a href="logout.php">logout</a>
+    	</div>
+    <?php endif; ?>
+    
+    
+    
+    <?php if ($_SESSION['admin'] == TRUE): ?>
+		<div class="subheader">clients</div>
+		<table>
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>date of birth</th>
+				<th>passport</th>
+				<th>sex</th>
+				<th>edit</th>
+			</tr>
+			<?php while ($client = mysql_fetch_array($clients)): ?>
+				<tr>
+				<td><?=$client['id']?></td>
+				<td><?=$client['name']?></td>
+				<td><?=$client['date_of_birth']?></td>
+				<td><?=$client['passport']?></td>
+				<td><?=$client['sex']?></td>
+				<td><a href='edit.php?table=1&id=<?=$client['id']?>'>edit</a></td>		
+				</tr>
+			<?php endwhile; ?> 	
+		</table>
+		<br>
+    <?php endif; ?>
+    
+    
+    <div class="subheader">orders</div>
+    <table>
+    	<tr>
+    		<th>id</th>
+    		<th>client</th>
+    		<th>apartment</th>
+    		<th>date</th>
+    		<th>day count</th>
+    		<th>status</th>
+    		<th>edit</th>
+    	</tr>
+		<?php while ($order = mysql_fetch_array($orders)): ?>
+			<tr>
+			<td><?=$order['id']?></td>
+			<td><?=$order['client']?></td>
+			<td><?=$order['apartment']?></td>
+			<td><?=$order['date']?></td>
+			<td><?=$order['day_count']?></td>
+			<td><?=$order['order_status']?></td>
+			<td><a href='edit.php?table=2&id=<?=$order['id']?>'>edit</a></td>	
+			</tr>
+		<?php endwhile; ?>	
+    </table>
+    
+    <br>
+    <br>
+    <div class="subheader">
+    	<a href="add.php">adding page.</a>
+    </div>
+    </body>
+</html>
+

@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>BOOKING | edit</title>
+        <link href="css/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+    <div class="header">Editing page. Good luck.</div>
+    <div align="center">
+    
+    <?php if ($_GET['table'] == 1):
+			$raw = mysql_query("SELECT * FROM `client` WHERE id=".$_GET['id']);
+			$client = mysql_fetch_array($raw);
+		
+    ?>
+    
+		<?php if ($_SESSION['admin'] == TRUE): ?>
+		<form method="POST" action="edit.php?table=<?=$_GET['table']?>&id=<?=$_GET['id']?>">
+			<fieldset>
+				<legend>Edit client</legend>
+				<label>name</label>
+				<input type="text" name="name" value="<?=$client['name']?>"><br>
+				<label>date of birth</label>
+				<input type="text" name="date_of_birth" value="<?=$client['date_of_birth']?>"><br>
+				<label>passport</label>
+				<input type="text" name="passport" value="<?=$client['passport']?>"><br>
+				<label>sex</label> 
+				<select name="sex" value="<?=$client['sex']?>">
+					<option>Male</option>
+					<option>Female</option>
+				</select><br>
+				<input class="submit" name="add_client" type="submit" value="submit">
+				<input type="hidden" name="id" value="<?=$_GET['id']?>">
+		    </fieldset>
+		</form>
+		<?php endif; ?>
+    <?php endif; ?>
+    
+    <br>    
+    
+    <?php if ($_GET['table'] == 2):
+			$raw = mysql_query("SELECT * FROM `order` WHERE id=".$_GET['id']);
+			$order = mysql_fetch_array($raw);
+		
+    ?>    
+    <form method="POST" action="edit.php?table=<?=$_GET['table']?>&id=<?=$_GET['id']?>">
+    	<fieldset>
+    		<legend>Edit order</legend>
+			<label>client</label>
+			<select name="client" value="<?=$order['client']?>">
+				<?php foreach ($clients as $client): ?>
+                	<option><?=$client?></option>
+                <?php endforeach; ?>
+			</select><br>
+			<label>apartment</label>
+			<select name="apartment" value="<?=$order['apartment']?>">
+				<?php foreach ($apartments as $apartment): ?>
+                	<option><?=$apartment?></option>
+                <?php endforeach; ?>
+			</select><br>
+			<label>date</label>
+			<input type="text" name="date" value="<?=$order['date']?>"><br>	
+			<label>day count</label>
+			<input type="text" name="day_count" value="<?=$order['day_count']?>"><br>
+			<label>order status</label>
+			<select name="order_status" value="<?=$order['order_status']?>">
+				<?php foreach ($statuses as $status): ?>
+                	<option><?=$status?></option>
+                <?php endforeach; ?>
+			</select><br>
+		    <input class="submit" name="add_order" type="submit" value="submit">
+		    <input type="hidden" name="id" value="<?=$_GET['id']?>">
+        </fieldset>
+    </form>
+    <?php endif; ?>  
+    </div>  
+    </body>
+</html>

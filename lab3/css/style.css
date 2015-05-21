@@ -1,0 +1,27 @@
+body {
+	margin: 0;
+	padding: 20px;
+}
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+	/*width: 50%;*/
+}
+th, td {
+	padding: 15px;
+}
+td {
+	font: 12pt sans-serif;
+}
+.header {
+	padding: 20px;
+	text-align: center;
+	font: bold 18pt sans-serif;
+}
+.subheader {
+	padding: 15px;
+	text-align: center;
+	font: bold 14pt sans-serif;
+}

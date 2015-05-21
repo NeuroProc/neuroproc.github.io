@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>BOOKING | add</title>
+        <link href="css/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+    
+    <div class="header">Adding page. Good luck.</div>
+    <div align="center">
+    <?php if ($_SESSION['admin'] == TRUE): ?>
+		<form style="" method="POST" action="add.php">
+			<fieldset>
+				<legend>Add client</legend>
+			
+				<div class="labelwrap"><label>name</label></div>
+				<input type="text" name="name"><br>
+				<div class="labelwrap"><label>date of birth</label></div>
+				<input type="text" name="date_of_birth"><br>
+				<div class="labelwrap"><label>passport</label></div>
+				<input type="text" name="passport"><br>
+				<div class="labelwrap"><label>sex</label></div>
+				<select name="sex">
+					<option>Male</option>
+					<option>Female</option>
+				</select><br>
+				<input class="submit" name="add_client" type="submit" value="ADD">
+			</fieldset>
+		</form>
+		<br>
+    <?php endif; ?>
+    
+    <form method="POST" action="add.php">
+    	<fieldset>
+    		<legend>Add order</legend>
+			<div class="labelwrap"><label>client</label></div>
+			<select name="client">
+				<?php if ($_SESSION['admin'] == TRUE): ?>
+					<?php foreach ($clients as $client): ?>
+		            	<option><?=$client?></option>
+		            <?php endforeach; ?>
+		        <?php else: ?>
+		        	<option><?=$_SESSION['uid']?></option>
+                <?php endif; ?>
+			</select><br>
+			<div class="labelwrap"><label>apartment</label></div>
+			<select name="apartment">
+				<?php foreach ($apartments as $apartment): ?>
+                	<option><?=$apartment?></option>
+                <?php endforeach; ?>
+			</select><br>
+			<div class="labelwrap"><label>date</label></div>
+			<input type="text" name="date"><br>	
+			<div class="labelwrap"><label>day count</label></div>
+			<input type="text" name="day_count"><br>
+			<div class="labelwrap"><label>order status</label></div>
+			<select name="order_status">
+				<?php foreach ($statuses as $status): ?>
+                	<option><?=$status?></option>
+                <?php endforeach; ?>
+			</select><br>
+		    <input class="submit" name="add_order" type="submit" value="submit">
+        </fieldset>
+    </form>
+	</div>
+    </body>
+</html>

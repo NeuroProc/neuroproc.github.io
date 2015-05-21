@@ -1,0 +1,28 @@
+body {
+	margin: 0;
+	padding: 20px;
+}
+form {
+	font: 14pt sans-serif;
+	padding-top: 20px;
+}
+fieldset {
+	width: 30%;
+}
+input, select {
+	text-align: left;
+	margin: 5px;
+	padding: 5px;
+	border: 1px solid black;
+	background: #FFF;
+	font: 12pt sans-serif;
+}
+.header {
+	padding: 20px;
+	text-align: center;
+	font: bold 20pt sans-serif;
+}
+.labelwrap {
+	display: inline-block;
+	width: 150px;
+}

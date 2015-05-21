@@ -1,0 +1,63 @@
+
+body {
+	margin: 0;
+	padding: 20px;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+}
+th, td {
+	padding: 15px;
+}
+td {
+	font: 12pt sans-serif;
+}
+.header {
+	padding: 20px;
+	text-align: center;
+	font: bold 20pt sans-serif;
+}
+.subheader {
+	padding: 15px;
+	text-align: center;
+	font: bold 14pt sans-serif;
+}
+form {
+	font: 14pt sans-serif;
+	padding-top: 20px;
+}
+fieldset {
+	width: 30%;
+}
+
+input, select {
+	text-align: left;
+	margin: 5px;
+	padding: 5px;
+	border: 1px solid black;
+	background: #FFF;
+	font: 12pt sans-serif;
+	width: 250px;
+}
+
+.err {
+	text-align: center;
+	font: bold 12pt sans-serif;
+	color: red;
+}
+.labelwrap {
+	display: inline-block;
+	width: 150px;
+}
+.submit {
+	width: auto;
+}
+.submit:hover {
+	border: 1px solid blue;
+	color: blue;
+}
+
